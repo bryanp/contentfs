@@ -1,0 +1,54 @@
+commit:
+  changelogs:
+    - label: "commit.changelog"
+      destination: "./CHANGELOG.md"
+
+  changetypes:
+    - label: "commit.type.add"
+      name: "add"
+    - label: "commit.type.chg"
+      name: "chg"
+    - label: "commit.type.fix"
+      name: "fix"
+    - label: "commit.type.dep"
+      name: "dep"
+
+  includes:
+    - ruby-gem
+    - ruby-rspec
+    - ruby-standard
+    - oss
+    - git
+    - base
+
+  externals:
+    - repo: "metabahn/commit-templates"
+      private: true
+
+git:
+  ignore:
+    - "tmp"
+
+license:
+  slug: mit
+  name: "MIT"
+
+project:
+  slug: "contentfs"
+  description: "A structured content file system."
+
+  author:
+    name: "Bryan Powell"
+    email: "bryan@metabahn.com"
+    homepage: "https://github.com/metabahn/contentfs/"
+
+  copyright:
+    attribution: "Metabahn"
+    year: 2020
+
+ruby:
+  gem:
+    namespace: "ContentFS"
+    extra: |-2
+        spec.files = Dir["CHANGELOG.md", "README.md", "LICENSE", "lib/**/*"]
+        spec.require_path = "lib"

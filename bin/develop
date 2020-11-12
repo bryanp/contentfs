@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+loop do
+  system("clear; git ls-files -cdmo --exclude-standard | entr -d -c make -s build")
+
+  case $?.to_i
+  when 0
+    break
+  else
+    true
+  end
+rescue Interrupt
+  exit
+end
