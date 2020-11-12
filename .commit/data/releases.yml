@@ -1,0 +1,6 @@
+---
+- version: v0.0.0
+  date: "2020-11-11"
+  link: "https://github.com/metabahn/contentfs/releases/tag/v0.0.0"
+  changes:
+  - summary: Initial release.
