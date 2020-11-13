@@ -55,8 +55,8 @@ module ContentFS
       end
     end
 
-    def all
-      return to_enum(:all) unless block_given?
+    def content
+      return to_enum(:content) unless block_given?
 
       @children.each_value do |value|
         yield value
