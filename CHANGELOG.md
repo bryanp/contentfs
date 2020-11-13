@@ -1,12 +1,12 @@
 ## v0.1.1
 
-*unreleased*
+*released on 2020-11-13*
 
   * `fix` [#5](https://github.com/metabahn/contentfs/pull/5) Remove front-matter from content ([bryanp](https://github.com/bryanp))
 
 ## v0.1.0
 
-*unreleased*
+*released on 2020-11-12*
 
   * `add` [#4](https://github.com/metabahn/contentfs/pull/4) Expose namespaces for databases and content ([bryanp](https://github.com/bryanp))
   * `add` [#3](https://github.com/metabahn/contentfs/pull/3) Introduce `Database#nested` for iterating over databases ([bryanp](https://github.com/bryanp))
