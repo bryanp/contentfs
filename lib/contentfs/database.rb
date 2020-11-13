@@ -77,6 +77,16 @@ module ContentFS
       }
     end
 
+    def find(name, *nested)
+      if @children.key?(name)
+        @children[name]
+      elsif @nested.key?(name)
+        nested.inject(@nested[name]) { |database, next_nested|
+          database.find(next_nested.to_sym)
+        }
+      end
+    end
+
     def to_s
       @content&.to_s.to_s
     end
@@ -86,15 +96,7 @@ module ContentFS
     end
 
     def method_missing(name, *nested, **)
-      if @children.key?(name)
-        @children[name]
-      elsif @nested.key?(name)
-        nested.inject(@nested[name]) { |database, next_nested|
-          database.public_send(next_nested.to_sym)
-        }
-      else
-        super
-      end
+      find(name, *nested) || super
     end
 
     def respond_to_missing?(name, *)

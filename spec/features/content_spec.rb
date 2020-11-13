@@ -13,11 +13,11 @@ RSpec.describe "accessing content" do
 
   describe "markdown" do
     it "defines simple markdown content" do
-      expect(database.simple.to_s).to eq_sans_whitespace("**simple**")
+      expect(database.find(:simple).to_s).to eq_sans_whitespace("**simple**")
     end
 
     it "returns rendered content" do
-      expect(database.simple.render).to eq_sans_whitespace(
+      expect(database.find(:simple).render).to eq_sans_whitespace(
         <<~CONTENT
           <p>
             <strong>simple</strong>
@@ -29,7 +29,7 @@ RSpec.describe "accessing content" do
 
   describe "markdown with code" do
     it "handles syntax highlighting" do
-      expect(database.code.render).to eq_sans_whitespace(
+      expect(database.find(:code).render).to eq_sans_whitespace(
         <<~CONTENT
           <div class="highlight">
             <pre class="highlight ruby">
@@ -45,7 +45,7 @@ RSpec.describe "accessing content" do
 
   describe "unknown format" do
     it "returns plaintext" do
-      expect(database.unknown.render).to eq_sans_whitespace(
+      expect(database.find(:unknown).render).to eq_sans_whitespace(
         <<~CONTENT
           unknown
         CONTENT
@@ -55,7 +55,7 @@ RSpec.describe "accessing content" do
 
   describe "sans extension" do
     it "returns plaintext" do
-      expect(database.sans_ext.render).to eq_sans_whitespace(
+      expect(database.find(:sans_ext).render).to eq_sans_whitespace(
         <<~CONTENT
           sans ext
         CONTENT
@@ -63,17 +63,9 @@ RSpec.describe "accessing content" do
     end
   end
 
-  describe "missing content" do
-    it "raises" do
-      expect {
-        database.missing
-      }.to raise_error(NoMethodError)
-    end
-  end
-
   describe "directory content" do
     it "can be defined" do
-      expect(database.nested.render).to eq_sans_whitespace("<p>nested content</p>")
+      expect(database.find(:nested).render).to eq_sans_whitespace("<p>nested content</p>")
     end
   end
 end
