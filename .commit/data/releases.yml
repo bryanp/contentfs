@@ -1,4 +1,13 @@
 ---
+- version: v0.1.1
+  changes:
+  - id: 5
+    type: fix
+    summary: Remove front-matter from content
+    link: https://github.com/metabahn/contentfs/pull/5
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.1.0
   changes:
   - id: 4
@@ -34,12 +43,3 @@
   link: https://github.com/metabahn/contentfs/releases/tag/v0.0.0
   changes:
   - summary: Initial release.
-- version: 0.2.1
-  changes:
-  - id: 5
-    type: fix
-    summary: Remove front-matter from content
-    link: https://github.com/metabahn/contentfs/pull/5
-    author:
-      username: bryanp
-      link: https://github.com/bryanp
