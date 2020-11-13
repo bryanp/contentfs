@@ -11,23 +11,28 @@ module ContentFS
   #
   class Database
     class << self
-      def load(path)
-        new(path: path)
+      def load(path, namespace: [], root: true)
+        new(path: path, namespace: namespace, root: root)
       end
     end
 
     METADATA_FILE = "_metadata.yml"
 
-    attr_reader :prefix, :slug
+    attr_reader :prefix, :slug, :namespace
 
-    def initialize(path:)
+    def initialize(path:, namespace: [], root: false)
       path = Pathname.new(path)
       name = path.basename(path.extname)
       prefix, remainder = Prefix.build(name)
       @prefix = prefix
-      @slug = Slug.build(remainder)
       @children = {}
       @nested = {}
+      @namespace = namespace.dup
+
+      unless root
+        @slug = Slug.build(remainder)
+        @namespace << @slug
+      end
 
       metadata_path = path.join(METADATA_FILE)
 
@@ -41,10 +46,10 @@ module ContentFS
         next if path.basename.to_s.start_with?("_")
 
         if path.directory?
-          database = Database.load(path)
+          database = Database.load(path, namespace: @namespace, root: false)
           @nested[database.slug] = database
         else
-          content = Content.load(path, metadata: metadata)
+          content = Content.load(path, metadata: metadata, namespace: @namespace)
 
           if content.slug == :content
             @content = content
