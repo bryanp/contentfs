@@ -1,5 +1,6 @@
 ---
 - version: v0.1.1
+  date: '2020-11-13'
   changes:
   - id: 5
     type: fix
@@ -9,6 +10,7 @@
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.1.0
+  date: '2020-11-12'
   changes:
   - id: 4
     type: add
