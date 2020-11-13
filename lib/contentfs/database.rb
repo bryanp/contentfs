@@ -63,6 +63,14 @@ module ContentFS
       end
     end
 
+    def nested
+      return to_enum(:nested) unless block_given?
+
+      @nested.each_value do |value|
+        yield value
+      end
+    end
+
     def filter(**filters)
       return to_enum(:filter, **filters) unless block_given?
 
