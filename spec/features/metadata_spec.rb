@@ -10,24 +10,24 @@ RSpec.describe "defining metadata" do
   }
 
   it "defines metadata via front-matter" do
-    expect(database.front_matter.metadata).to eq("foo" => "bar")
+    expect(database.find(:front_matter).metadata).to eq("foo" => "bar")
   end
 
   it "defines metadata via _metadata.yml" do
-    expect(database.nested.file_based.metadata).to eq("foo" => "bar")
+    expect(database.find(:nested, :file_based).metadata).to eq("foo" => "bar")
   end
 
   it "merges metadata defined in front-matter and _metadata.yml" do
-    expect(database.nested.merged.metadata).to eq("foo" => "bar", "bar" => "baz")
+    expect(database.find(:nested, :merged).metadata).to eq("foo" => "bar", "bar" => "baz")
   end
 
   it "gives precedence to metadata defined in front-matter" do
-    expect(database.nested.override.metadata).to eq("foo" => "baz")
+    expect(database.find(:nested, :override).metadata).to eq("foo" => "baz")
   end
 
   it "does not expose the metadata file as content" do
     expect {
-      database.nested.metadata
+      database.find(:nested).metadata
     }.to raise_error(NoMethodError)
   end
 end

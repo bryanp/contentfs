@@ -12,6 +12,6 @@ RSpec.describe "content format" do
   }
 
   it "exposes the format for the content" do
-    expect(database.foo.format).to eq(:md)
+    expect(database.find(:foo).format).to eq(:md)
   end
 end

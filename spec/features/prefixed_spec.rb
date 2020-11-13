@@ -12,10 +12,10 @@ RSpec.describe "prefixed content paths" do
   }
 
   it "exposes the prefix for content" do
-    expect(database.foo.prefix).to eq("0000")
+    expect(database.find(:foo).prefix).to eq("0000")
   end
 
   it "exposes the prefix for databases" do
-    expect(database.nested.prefix).to eq("0001")
+    expect(database.find(:nested).prefix).to eq("0001")
   end
 end
