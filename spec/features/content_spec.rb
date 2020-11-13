@@ -68,4 +68,10 @@ RSpec.describe "accessing content" do
       expect(database.find(:nested).render).to eq_sans_whitespace("<p>nested content</p>")
     end
   end
+
+  describe "content with front-matter" do
+    it "removes the front-matter" do
+      expect(database.find(:front_matter).render).to eq_sans_whitespace("content")
+    end
+  end
 end
