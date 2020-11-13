@@ -1,3 +1,9 @@
+## v0.1.1
+
+*unreleased*
+
+  * `fix` [#5](https://github.com/metabahn/contentfs/pull/5) Remove front-matter from content ([bryanp](https://github.com/bryanp))
+
 ## v0.1.0
 
 *unreleased*
@@ -12,11 +18,5 @@
 *released on 2020-11-11*
 
   * Initial release.
-
-## 0.2.1
-
-*unreleased*
-
-  * `fix` [#5](https://github.com/metabahn/contentfs/pull/5) Remove front-matter from content ([bryanp](https://github.com/bryanp))
 
 
