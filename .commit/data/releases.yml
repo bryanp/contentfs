@@ -1,6 +1,13 @@
 ---
 - version: v0.1.0
   changes:
+  - id: 4
+    type: add
+    summary: Expose namespaces for databases and content
+    link: https://github.com/metabahn/contentfs/pull/4
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
   - id: 3
     type: add
     summary: Introduce `Database#nested` for iterating over databases
