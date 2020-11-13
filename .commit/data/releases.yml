@@ -1,6 +1,15 @@
 ---
+- version: v0.1.0
+  changes:
+  - id: 1
+    type: add
+    summary: Introduce `Database#find` for safer traversal
+    link: https://github.com/metabahn/contentfs/pull/1
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.0.0
-  date: "2020-11-11"
-  link: "https://github.com/metabahn/contentfs/releases/tag/v0.0.0"
+  date: '2020-11-11'
+  link: https://github.com/metabahn/contentfs/releases/tag/v0.0.0
   changes:
   - summary: Initial release.
