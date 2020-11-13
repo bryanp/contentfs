@@ -12,7 +12,7 @@ RSpec.describe "iterating over content in a database" do
   }
 
   it "returns an enum containing direct content" do
-    iterator = database.all
+    iterator = database.content
 
     expect(iterator.count).to eq(2)
     expect(iterator.map(&:slug)).to eq([:foo, :bar])
@@ -20,7 +20,7 @@ RSpec.describe "iterating over content in a database" do
 
   it "iterates directly" do
     iterations = []
-    database.all do |content|
+    database.content do |content|
       iterations << content.slug
     end
 
