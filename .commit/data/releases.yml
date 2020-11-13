@@ -1,6 +1,7 @@
 ---
 - version: v0.1.1
   date: '2020-11-13'
+  link: https://github.com/metabahn/contentfs/releases/tag/v0.1.1
   changes:
   - id: 5
     type: fix
@@ -11,6 +12,7 @@
       link: https://github.com/bryanp
 - version: v0.1.0
   date: '2020-11-12'
+  link: https://github.com/metabahn/contentfs/releases/tag/v0.1.0
   changes:
   - id: 4
     type: add
