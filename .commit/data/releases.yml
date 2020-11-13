@@ -1,6 +1,13 @@
 ---
 - version: v0.1.0
   changes:
+  - id: 2
+    type: chg
+    summary: Rename `Database#all` to `Database#content`
+    link: https://github.com/metabahn/contentfs/pull/2
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
   - id: 1
     type: add
     summary: Introduce `Database#find` for safer traversal
