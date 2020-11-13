@@ -29,9 +29,11 @@ module ContentFS
       @prefix = prefix
       @format = extname.to_s[1..-1]&.to_sym
       @slug = Slug.build(remainder)
-      @content = path.read
-      @metadata = metadata.merge(parse_metadata(@content))
       @namespace = namespace.dup << @slug
+
+      content = path.read
+      @metadata = metadata.merge(parse_metadata(content))
+      @content = content.gsub(FRONT_MATTER_REGEXP, "")
     end
 
     def to_s
