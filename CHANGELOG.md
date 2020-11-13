@@ -1,10 +1,10 @@
-## v0.1.1
+## [v0.1.1](https://github.com/metabahn/contentfs/releases/tag/v0.1.1)
 
 *released on 2020-11-13*
 
   * `fix` [#5](https://github.com/metabahn/contentfs/pull/5) Remove front-matter from content ([bryanp](https://github.com/bryanp))
 
-## v0.1.0
+## [v0.1.0](https://github.com/metabahn/contentfs/releases/tag/v0.1.0)
 
 *released on 2020-11-12*
 
