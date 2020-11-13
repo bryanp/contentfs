@@ -2,6 +2,7 @@
 *unreleased*
 
 
+  * `chg` [#2](https://github.com/metabahn/contentfs/pull/2) Rename `Database#all` to `Database#content` ([bryanp](https://github.com/bryanp))
   * `add` [#1](https://github.com/metabahn/contentfs/pull/1) Introduce `Database#find` for safer traversal ([bryanp](https://github.com/bryanp))
 
 ## [v0.0.0](https://github.com/metabahn/contentfs/releases/tag/v0.0.0)
