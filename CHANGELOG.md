@@ -1,3 +1,9 @@
+## v0.2.0
+
+*unreleased*
+
+  * `add` [#6](https://github.com/metabahn/contentfs/pull/6) Expose database metadata ([bryanp](https://github.com/bryanp))
+
 ## [v0.1.1](https://github.com/metabahn/contentfs/releases/tag/v0.1.1)
 
 *released on 2020-11-13*
