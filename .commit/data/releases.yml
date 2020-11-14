@@ -1,4 +1,13 @@
 ---
+- version: v0.2.0
+  changes:
+  - id: 6
+    type: add
+    summary: Expose database metadata
+    link: https://github.com/metabahn/contentfs/pull/6
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.1.1
   date: '2020-11-13'
   link: https://github.com/metabahn/contentfs/releases/tag/v0.1.1
