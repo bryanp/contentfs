@@ -18,7 +18,7 @@ module ContentFS
 
     METADATA_FILE = "_metadata.yml"
 
-    attr_reader :prefix, :slug, :namespace
+    attr_reader :prefix, :slug, :namespace, :metadata
 
     def initialize(path:, namespace: [], root: false)
       path = Pathname.new(path)
@@ -36,7 +36,7 @@ module ContentFS
 
       metadata_path = path.join(METADATA_FILE)
 
-      metadata = if metadata_path.exist?
+      @metadata = if metadata_path.exist?
         YAML.safe_load(metadata_path.read).to_h
       else
         {}
@@ -49,7 +49,7 @@ module ContentFS
           database = Database.load(path, namespace: @namespace, root: false)
           @nested[database.slug] = database
         else
-          content = Content.load(path, metadata: metadata, namespace: @namespace)
+          content = Content.load(path, metadata: @metadata, namespace: @namespace)
 
           if content.slug == :content
             @content = content
