@@ -25,8 +25,6 @@ module ContentFS
       name = path.basename(path.extname)
       prefix, remainder = Prefix.build(name)
       @prefix = prefix
-      @children = {}
-      @nested = {}
       @namespace = namespace.dup
 
       unless root
@@ -42,22 +40,35 @@ module ContentFS
         {}
       end
 
+      children, nested = {}, {}
       Pathname.new(path).glob("*") do |path|
         next if path.basename.to_s.start_with?("_")
 
         if path.directory?
           database = Database.load(path, namespace: @namespace, root: false)
-          @nested[database.slug] = database
+          nested[database.slug] = database
         else
           content = Content.load(path, metadata: @metadata, namespace: @namespace)
 
           if content.slug == :content
             @content = content
           else
-            @children[content.slug] = content
+            children[content.slug] = content
           end
         end
       end
+
+      @children = Hash[
+        children.sort_by { |key, content|
+          (content.prefix || content.slug).to_s
+        }
+      ]
+
+      @nested = Hash[
+        nested.sort_by { |key, database|
+          (database.prefix || database.slug).to_s
+        }
+      ]
     end
 
     def content

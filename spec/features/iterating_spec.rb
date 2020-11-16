@@ -16,7 +16,7 @@ RSpec.describe "iterating through a database" do
       iterator = database.content
 
       expect(iterator.count).to eq(2)
-      expect(iterator.map(&:slug)).to eq([:foo, :bar])
+      expect(iterator.map(&:slug)).to eq([:bar, :foo])
     end
 
     it "iterates directly" do
@@ -25,7 +25,7 @@ RSpec.describe "iterating through a database" do
         iterations << content.slug
       end
 
-      expect(iterations).to eq([:foo, :bar])
+      expect(iterations).to eq([:bar, :foo])
     end
   end
 
