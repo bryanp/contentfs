@@ -1,3 +1,9 @@
+## v0.2.1
+
+*unreleased*
+
+  * `fix` [#7](https://github.com/metabahn/contentfs/pull/7) Order content and databases by prefix or slug ([bryanp](https://github.com/bryanp))
+
 ## [v0.2.0](https://github.com/metabahn/contentfs/releases/tag/v0.2.0)
 
 *released on 2020-11-14*
