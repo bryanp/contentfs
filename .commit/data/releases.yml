@@ -1,4 +1,13 @@
 ---
+- version: v0.2.1
+  changes:
+  - id: 7
+    type: fix
+    summary: Order content and databases by prefix or slug
+    link: https://github.com/metabahn/contentfs/pull/7
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.2.0
   date: '2020-11-14'
   link: https://github.com/metabahn/contentfs/releases/tag/v0.2.0
