@@ -1,4 +1,13 @@
 ---
+- version: v0.3.0
+  changes:
+  - id: 8
+    type: chg
+    summary: Load database content from _content to avoid collisions
+    link: https://github.com/metabahn/contentfs/pull/8
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.2.1
   changes:
   - id: 7
