@@ -1,3 +1,9 @@
+## v0.3.0
+
+*unreleased*
+
+  * `chg` [#8](https://github.com/metabahn/contentfs/pull/8) Load database content from _content to avoid collisions ([bryanp](https://github.com/bryanp))
+
 ## v0.2.1
 
 *unreleased*
