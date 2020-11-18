@@ -40,6 +40,12 @@ module ContentFS
         {}
       end
 
+      content_path = path.join.glob("_content.*")[0]
+
+      @content = if content_path&.exist?
+        Content.load(content_path, metadata: @metadata, namespace: @namespace)
+      end
+
       children, nested = {}, {}
       Pathname.new(path).glob("*") do |path|
         next if path.basename.to_s.start_with?("_")
@@ -50,11 +56,7 @@ module ContentFS
         else
           content = Content.load(path, metadata: @metadata, namespace: @namespace)
 
-          if content.slug == :content
-            @content = content
-          else
-            children[content.slug] = content
-          end
+          children[content.slug] = content
         end
       end
 
