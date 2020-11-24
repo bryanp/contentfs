@@ -74,4 +74,16 @@ RSpec.describe "accessing content" do
       expect(database.find(:front_matter).render).to eq_sans_whitespace("content")
     end
   end
+
+  describe "ignored content" do
+    it "ignores content prefixed with an underscore" do
+      expect(database.find(:in_progress)).to be(nil)
+      expect(database.find(:_in_progress)).to be(nil)
+    end
+
+    it "ignores databases prefixed with an underscore" do
+      expect(database.find(:ignored_database)).to be(nil)
+      expect(database.find(:_ignored_database)).to be(nil)
+    end
+  end
 end
