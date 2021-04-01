@@ -1,5 +1,7 @@
 ---
 - version: v0.4.0
+  date: '2021-04-01'
+  link: https://github.com/metabahn/contentfs/releases/tag/v0.4.0
   changes:
   - id: 9
     type: add
@@ -9,6 +11,8 @@
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.3.0
+  date: '2020-11-18'
+  link: https://github.com/metabahn/contentfs/releases/tag/v0.3.0
   changes:
   - id: 8
     type: chg
