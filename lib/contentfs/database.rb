@@ -11,8 +11,8 @@ module ContentFS
   #
   class Database
     class << self
-      def load(path, namespace: [], root: true)
-        new(path: path, namespace: namespace, root: root)
+      def load(path, parent: nil, namespace: [], root: true)
+        new(path: path, parent: parent, namespace: namespace, root: root)
       end
     end
 
@@ -20,12 +20,13 @@ module ContentFS
 
     attr_reader :prefix, :slug, :namespace, :metadata
 
-    def initialize(path:, namespace: [], root: false)
+    def initialize(path:, parent: nil, namespace: [], root: false)
       path = Pathname.new(path)
       name = path.basename(path.extname)
       prefix, remainder = Prefix.build(name)
       @prefix = prefix
       @namespace = namespace.dup
+      @parent = parent
 
       unless root
         @slug = Slug.build(remainder)
@@ -43,18 +44,23 @@ module ContentFS
       content_path = path.join.glob("_content.*")[0]
 
       @content = if content_path&.exist?
-        Content.load(content_path, metadata: @metadata, namespace: @namespace)
+        Content.load(content_path, database: self, metadata: @metadata, namespace: @namespace)
       end
 
-      children, nested = {}, {}
+      children, nested, includes = {}, {}, {}
       Pathname.new(path).glob("*") do |path|
-        next if path.basename.to_s.start_with?("_")
+        underscored = path.basename.to_s.start_with?("_")
+        next if underscored && path.directory?
 
         if path.directory?
-          database = Database.load(path, namespace: @namespace, root: false)
+          database = Database.load(path, parent: self, namespace: @namespace, root: false)
           nested[database.slug] = database
+        elsif underscored
+          content = Content.load(path, database: self, metadata: @metadata, namespace: @namespace)
+
+          includes[content.slug.to_s[1..].to_sym] = content
         else
-          content = Content.load(path, metadata: @metadata, namespace: @namespace)
+          content = Content.load(path, database: self, metadata: @metadata, namespace: @namespace)
 
           children[content.slug] = content
         end
@@ -69,6 +75,12 @@ module ContentFS
       @nested = Hash[
         nested.sort_by { |key, database|
           (database.prefix || database.slug).to_s
+        }
+      ]
+
+      @includes = Hash[
+        includes.sort_by { |key, content|
+          (content.prefix || content.slug).to_s
         }
       ]
     end
@@ -111,6 +123,35 @@ module ContentFS
           database.find(next_nested.to_sym)
         }
       end
+    end
+
+    def find_include(path)
+      @includes[path.to_sym] || find_child_include(path) || find_parent_include(path) || find_include_from_toplevel(path)
+    end
+
+    def toplevel
+      @parent ? @parent.toplevel : self
+    end
+
+    private def find_child_include(path)
+      return unless path.include?("/")
+
+      path_parts = path.split("/", 2)
+      @nested[path_parts[0].to_sym]&.find_include(path_parts[1])
+    end
+
+    private def find_parent_include(path)
+      return if @parent.nil?
+      return unless path.start_with?("../")
+
+      path_parts = path.split("../", 2)
+      @parent.find_include(path_parts[1])
+    end
+
+    private def find_include_from_toplevel(path)
+      return if @parent.nil?
+
+      toplevel.find_include(path)
     end
 
     def to_s
