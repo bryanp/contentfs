@@ -1,4 +1,13 @@
 ---
+- version: v0.4.0
+  changes:
+  - id: 9
+    type: add
+    summary: Includes
+    link: https://github.com/metabahn/contentfs/pull/9
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.3.0
   changes:
   - id: 8
