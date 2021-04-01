@@ -1,0 +1,3 @@
+<div>
+  <!-- @include simple -->
+</div>
