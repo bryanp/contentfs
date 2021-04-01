@@ -1,3 +1,9 @@
+## v0.4.0
+
+*unreleased*
+
+  * `add` [#9](https://github.com/metabahn/contentfs/pull/9) Includes ([bryanp](https://github.com/bryanp))
+
 ## v0.3.0
 
 *unreleased*
