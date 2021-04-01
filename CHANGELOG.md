@@ -1,12 +1,12 @@
-## v0.4.0
+## [v0.4.0](https://github.com/metabahn/contentfs/releases/tag/v0.4.0)
 
-*unreleased*
+*released on 2021-04-01*
 
   * `add` [#9](https://github.com/metabahn/contentfs/pull/9) Includes ([bryanp](https://github.com/bryanp))
 
-## v0.3.0
+## [v0.3.0](https://github.com/metabahn/contentfs/releases/tag/v0.3.0)
 
-*unreleased*
+*released on 2020-11-18*
 
   * `chg` [#8](https://github.com/metabahn/contentfs/pull/8) Load database content from _content to avoid collisions ([bryanp](https://github.com/bryanp))
 
