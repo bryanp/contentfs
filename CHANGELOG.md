@@ -1,6 +1,6 @@
-## v0.6.1
+## [v0.6.1](https://github.com/metabahn/contentfs/releases/tag/v0.6.1)
 
-*unreleased*
+*released on 2021-04-02*
 
   * `fix` [#13](https://github.com/metabahn/contentfs/pull/13) Resolve includes after rendering ([bryanp](https://github.com/bryanp))
 
