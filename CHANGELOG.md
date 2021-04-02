@@ -1,6 +1,6 @@
-## v0.6.0
+## [v0.6.0](https://github.com/metabahn/contentfs/releases/tag/v0.6.0)
 
-*unreleased*
+*released on 2021-04-02*
 
   * `add` [#12](https://github.com/metabahn/contentfs/pull/12) Provide a pattern for preprocessing content ([bryanp](https://github.com/bryanp))
 
