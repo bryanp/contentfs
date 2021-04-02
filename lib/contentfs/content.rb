@@ -45,7 +45,7 @@ module ContentFS
     def render
       working_content = @content.dup
 
-      @content.scan(INCLUDE_REGEXP).each do |match|
+      @content.scan(INCLUDE_REGEXP) do |match|
         if (include = @database.find_include(match[0]))
           working_content.gsub!($~.to_s, include.render)
         end

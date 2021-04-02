@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "redcarpet", require: false
+gem "commonmarker", require: false
 gem "rouge", require: false
 
 group :development do
