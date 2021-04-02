@@ -1,4 +1,13 @@
 ---
+- version: v0.6.1
+  changes:
+  - id: 13
+    type: fix
+    summary: Resolve includes after rendering
+    link: https://github.com/metabahn/contentfs/pull/13
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.6.0
   date: '2021-04-02'
   link: https://github.com/metabahn/contentfs/releases/tag/v0.6.0
