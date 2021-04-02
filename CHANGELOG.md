@@ -1,6 +1,6 @@
-## v0.5.1
+## [v0.5.1](https://github.com/metabahn/contentfs/releases/tag/v0.5.1)
 
-*unreleased*
+*released on 2021-04-02*
 
   * `fix` [#11](https://github.com/metabahn/contentfs/pull/11) Handle code blocks with no available lexer ([bryanp](https://github.com/bryanp))
 
