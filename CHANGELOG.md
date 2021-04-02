@@ -1,3 +1,9 @@
+## v0.5.0
+
+*unreleased*
+
+  * `chg` [#10](https://github.com/metabahn/contentfs/pull/10) Replace redcarpet with cmark ([bryanp](https://github.com/bryanp))
+
 ## [v0.4.0](https://github.com/metabahn/contentfs/releases/tag/v0.4.0)
 
 *released on 2021-04-01*
