@@ -41,6 +41,20 @@ RSpec.describe "accessing content" do
         CONTENT
       )
     end
+
+    it "handles empty code blocks" do
+      expect(database.find(:code_empty).render).to eq_sans_whitespace(
+        <<~CONTENT
+          <div class="highlight">
+            <pre class="highlight">
+              <code>
+                hello
+              </code>
+            </pre>
+          </div>
+        CONTENT
+      )
+    end
   end
 
   describe "unknown format" do

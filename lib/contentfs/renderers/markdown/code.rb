@@ -30,7 +30,11 @@ module ContentFS
           end
 
           private def syntax_highlight(source, language)
-            Rouge::Formatters::HTML.new.format(Rouge::Lexer.find(language).lex(source))
+            if (lexer = Rouge::Lexer.find(language))
+              Rouge::Formatters::HTML.new.format(lexer.lex(source))
+            else
+              source
+            end
           end
         end
       end
