@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rouge"
-require "rouge/plugins/redcarpet"
 
 require_relative "../markdown"
 
@@ -12,16 +11,27 @@ module ContentFS
       class Code
         class << self
           def render(content)
-            renderer.render(content)
+            renderer.render(CommonMarker.render_doc(content))
           end
 
           private def renderer
-            @_renderer ||= Redcarpet::Markdown.new(Renderer, Markdown.options)
+            SyntaxRenderer.new(options: [:DEFAULT, :UNSAFE])
           end
         end
 
-        class Renderer < Markdown::Renderer
-          include Rouge::Plugins::Redcarpet
+        class SyntaxRenderer < CommonMarker::HtmlRenderer
+          def code_block(node)
+            block do
+              language = node.fence_info.split(/\s+/)[0]
+              out("<div class=\"highlight\"><pre class=\"highlight #{language}\"><code>")
+              out(syntax_highlight(node.string_content, language))
+              out('</code></pre></div>')
+            end
+          end
+
+          private def syntax_highlight(source, language)
+            Rouge::Formatters::HTML.new.format(Rouge::Lexer.find(language).lex(source))
+          end
         end
       end
     end
