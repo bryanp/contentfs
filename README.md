@@ -40,7 +40,7 @@ The `content` name is special in that it defines content for the containing fold
 
 ### Formats
 
-Markdown is supported by default. Simply add the `redcarpet` gem to your project's `Gemfile`. For automatic syntax highlighting, add the `rouge` to your `Gemfile` as well.
+Markdown is supported by default. Simply add the `commonmarker` gem to your project's `Gemfile`. For automatic syntax highlighting, add the `rouge` to your `Gemfile` as well.
 
 Unknown formats default to plain text.
 
