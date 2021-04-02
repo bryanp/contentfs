@@ -1,4 +1,13 @@
 ---
+- version: v0.5.0
+  changes:
+  - id: 10
+    type: chg
+    summary: Replace redcarpet with cmark
+    link: https://github.com/metabahn/contentfs/pull/10
+    author:
+      username: bryanp
+      link: https://github.com/bryanp
 - version: v0.4.0
   date: '2021-04-01'
   link: https://github.com/metabahn/contentfs/releases/tag/v0.4.0
