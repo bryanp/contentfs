@@ -44,19 +44,23 @@ module ContentFS
     end
 
     def render
-      working_content = @content.dup
+      if @format && (renderer = Renderers.resolve(@format))
+        resolve_includes(renderer.render(@content))
+      else
+        resolve_includes(to_s)
+      end
+    end
 
-      @content.scan(INCLUDE_REGEXP) do |match|
+    private def resolve_includes(content)
+      working_content = content.dup
+
+      content.scan(INCLUDE_REGEXP) do |match|
         if (include = @database.find_include(match[0]))
           working_content.gsub!($~.to_s, include.render)
         end
       end
 
-      if @format && (renderer = Renderers.resolve(@format))
-        renderer.render(working_content)
-      else
-        to_s
-      end
+      working_content
     end
 
     private def parse_metadata(content)

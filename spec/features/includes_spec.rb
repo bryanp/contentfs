@@ -34,4 +34,8 @@ RSpec.describe "Including content" do
   it "includes content relative to the top-level database" do
     expect(database.find(:nested, :top).render).to eq_sans_whitespace("<p><strong>this is a test</strong></p>")
   end
+
+  it "correctly includes content that is code" do
+    expect(database.find(:with_code).render).to eq_sans_whitespace(database.find(:code).render)
+  end
 end
