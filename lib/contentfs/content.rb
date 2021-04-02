@@ -12,8 +12,8 @@ module ContentFS
   #
   class Content
     class << self
-      def load(path, database:, metadata: {}, namespace: [])
-        new(path: path, database: database, metadata: metadata, namespace: namespace)
+      def load(path, database:, metadata: {}, namespace: [], &block)
+        new(path: path, database: database, metadata: metadata, namespace: namespace, &block)
       end
     end
 
@@ -22,7 +22,7 @@ module ContentFS
 
     attr_reader :format, :prefix, :slug, :metadata, :namespace
 
-    def initialize(path:, database:, metadata: {}, namespace: [])
+    def initialize(path:, database:, metadata: {}, namespace: [], &block)
       path = Pathname.new(path)
       extname = path.extname
       name = path.basename(extname)
@@ -34,6 +34,7 @@ module ContentFS
       @database = database
 
       content = path.read
+      content = block.call(content) if block
       @metadata = metadata.merge(parse_metadata(content))
       @content = content.gsub(FRONT_MATTER_REGEXP, "")
     end

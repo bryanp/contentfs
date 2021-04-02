@@ -11,8 +11,8 @@ module ContentFS
   #
   class Database
     class << self
-      def load(path, parent: nil, namespace: [], root: true)
-        new(path: path, parent: parent, namespace: namespace, root: root)
+      def load(path, parent: nil, namespace: [], root: true, &block)
+        new(path: path, parent: parent, namespace: namespace, root: root, &block)
       end
     end
 
@@ -20,7 +20,7 @@ module ContentFS
 
     attr_reader :prefix, :slug, :namespace, :metadata
 
-    def initialize(path:, parent: nil, namespace: [], root: false)
+    def initialize(path:, parent: nil, namespace: [], root: false, &block)
       path = Pathname.new(path)
       name = path.basename(path.extname)
       prefix, remainder = Prefix.build(name)
@@ -44,7 +44,7 @@ module ContentFS
       content_path = path.join.glob("_content.*")[0]
 
       @content = if content_path&.exist?
-        Content.load(content_path, database: self, metadata: @metadata, namespace: @namespace)
+        Content.load(content_path, database: self, metadata: @metadata, namespace: @namespace, &block)
       end
 
       children, nested, includes = {}, {}, {}
@@ -53,14 +53,14 @@ module ContentFS
         next if underscored && path.directory?
 
         if path.directory?
-          database = Database.load(path, parent: self, namespace: @namespace, root: false)
+          database = Database.load(path, parent: self, namespace: @namespace, root: false, &block)
           nested[database.slug] = database
         elsif underscored
-          content = Content.load(path, database: self, metadata: @metadata, namespace: @namespace)
+          content = Content.load(path, database: self, metadata: @metadata, namespace: @namespace, &block)
 
           includes[content.slug.to_s[1..].to_sym] = content
         else
-          content = Content.load(path, database: self, metadata: @metadata, namespace: @namespace)
+          content = Content.load(path, database: self, metadata: @metadata, namespace: @namespace, &block)
 
           children[content.slug] = content
         end
