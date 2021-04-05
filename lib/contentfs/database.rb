@@ -43,8 +43,9 @@ module ContentFS
 
       content_path = path.join.glob("_content.*")[0]
 
-      @content = if content_path&.exist?
-        Content.load(content_path, database: self, metadata: @metadata, namespace: @namespace, &block)
+      if content_path&.exist?
+        @content = Content.load(content_path, database: self, metadata: @metadata, namespace: @namespace, &block)
+        @metadata = @content.metadata.dup
       end
 
       children, nested, includes = {}, {}, {}
