@@ -1,5 +1,7 @@
 ---
 - version: v0.6.2
+  date: '2021-04-05'
+  link: https://github.com/metabahn/contentfs/releases/tag/v0.6.2
   changes:
   - id: 14
     type: fix
