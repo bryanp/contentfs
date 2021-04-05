@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "contentfs"
+
 RSpec.describe "defining metadata" do
   let(:database) {
     ContentFS::Database.load(path)
@@ -21,11 +23,23 @@ RSpec.describe "defining metadata" do
     expect(database.find(:nested).metadata).to eq("foo" => "bar")
   end
 
+  it "defines database metadata via _content.md" do
+    expect(database.find(:other).metadata).to eq("foo" => "bar")
+  end
+
   it "merges metadata defined in front-matter and _metadata.yml" do
     expect(database.find(:nested, :merged).metadata).to eq("foo" => "bar", "bar" => "baz")
   end
 
+  it "merges metadata defined in _content.md front-matter and _metadata.yml" do
+    expect(database.find(:other, :merged).metadata).to eq("foo" => "bar", "bar" => "baz")
+  end
+
   it "gives precedence to metadata defined in front-matter" do
     expect(database.find(:nested, :override).metadata).to eq("foo" => "baz")
+  end
+
+  it "gives precedence to metadata defined in _content.md front-matter" do
+    expect(database.find(:other, :override).metadata).to eq("foo" => "baz")
   end
 end
