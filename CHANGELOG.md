@@ -1,6 +1,6 @@
-## v0.6.2
+## [v0.6.2](https://github.com/metabahn/contentfs/releases/tag/v0.6.2)
 
-*unreleased*
+*released on 2021-04-05*
 
   * `fix` [#14](https://github.com/metabahn/contentfs/pull/14) Load metadata for root content ([bryanp](https://github.com/bryanp))
 
