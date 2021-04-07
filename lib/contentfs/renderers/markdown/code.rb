@@ -19,13 +19,13 @@ module ContentFS
           end
         end
 
-        class SyntaxRenderer < CommonMarker::HtmlRenderer
+        class SyntaxRenderer < ContentFSRenderer
           def code_block(node)
             block do
               language = node.fence_info.split(/\s+/)[0]
               out("<div class=\"highlight\"><pre class=\"highlight #{language}\"><code>")
               out(syntax_highlight(node.string_content, language))
-              out('</code></pre></div>')
+              out("</code></pre></div>")
             end
           end
 
