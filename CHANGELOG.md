@@ -1,3 +1,9 @@
+## v0.7.0
+
+*unreleased*
+
+  * `add` [#15](https://github.com/metabahn/contentfs/pull/15) Add support for typed blockquotes ([bryanp](https://github.com/bryanp))
+
 ## [v0.6.2](https://github.com/metabahn/contentfs/releases/tag/v0.6.2)
 
 *released on 2021-04-05*
