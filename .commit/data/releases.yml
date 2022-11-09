@@ -1,89 +1,89 @@
 ---
 - version: v0.7.0
   date: '2021-04-07'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.7.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.7.0
   changes:
   - id: 15
     type: add
     summary: Add support for typed blockquotes
-    link: https://github.com/metabahn/contentfs/pull/15
+    link: https://github.com/bryanp/contentfs/pull/15
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.6.2
   date: '2021-04-05'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.6.2
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.6.2
   changes:
   - id: 14
     type: fix
     summary: Load metadata for root content
-    link: https://github.com/metabahn/contentfs/pull/14
+    link: https://github.com/bryanp/contentfs/pull/14
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.6.1
   date: '2021-04-02'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.6.1
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.6.1
   changes:
   - id: 13
     type: fix
     summary: Resolve includes after rendering
-    link: https://github.com/metabahn/contentfs/pull/13
+    link: https://github.com/bryanp/contentfs/pull/13
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.6.0
   date: '2021-04-02'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.6.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.6.0
   changes:
   - id: 12
     type: add
     summary: Provide a pattern for preprocessing content
-    link: https://github.com/metabahn/contentfs/pull/12
+    link: https://github.com/bryanp/contentfs/pull/12
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.5.1
   date: '2021-04-02'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.5.1
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.5.1
   changes:
   - id: 11
     type: fix
     summary: Handle code blocks with no available lexer
-    link: https://github.com/metabahn/contentfs/pull/11
+    link: https://github.com/bryanp/contentfs/pull/11
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.5.0
   date: '2021-04-01'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.5.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.5.0
   changes:
   - id: 10
     type: chg
     summary: Replace redcarpet with cmark
-    link: https://github.com/metabahn/contentfs/pull/10
+    link: https://github.com/bryanp/contentfs/pull/10
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.4.0
   date: '2021-04-01'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.4.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.4.0
   changes:
   - id: 9
     type: add
     summary: Includes
-    link: https://github.com/metabahn/contentfs/pull/9
+    link: https://github.com/bryanp/contentfs/pull/9
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.3.0
   date: '2020-11-18'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.3.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.3.0
   changes:
   - id: 8
     type: chg
     summary: Load database content from _content to avoid collisions
-    link: https://github.com/metabahn/contentfs/pull/8
+    link: https://github.com/bryanp/contentfs/pull/8
     author:
       username: bryanp
       link: https://github.com/bryanp
@@ -92,66 +92,66 @@
   - id: 7
     type: fix
     summary: Order content and databases by prefix or slug
-    link: https://github.com/metabahn/contentfs/pull/7
+    link: https://github.com/bryanp/contentfs/pull/7
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.2.0
   date: '2020-11-14'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.2.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.2.0
   changes:
   - id: 6
     type: add
     summary: Expose database metadata
-    link: https://github.com/metabahn/contentfs/pull/6
+    link: https://github.com/bryanp/contentfs/pull/6
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.1.1
   date: '2020-11-13'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.1.1
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.1.1
   changes:
   - id: 5
     type: fix
     summary: Remove front-matter from content
-    link: https://github.com/metabahn/contentfs/pull/5
+    link: https://github.com/bryanp/contentfs/pull/5
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.1.0
   date: '2020-11-12'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.1.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.1.0
   changes:
   - id: 4
     type: add
     summary: Expose namespaces for databases and content
-    link: https://github.com/metabahn/contentfs/pull/4
+    link: https://github.com/bryanp/contentfs/pull/4
     author:
       username: bryanp
       link: https://github.com/bryanp
   - id: 3
     type: add
     summary: Introduce `Database#nested` for iterating over databases
-    link: https://github.com/metabahn/contentfs/pull/3
+    link: https://github.com/bryanp/contentfs/pull/3
     author:
       username: bryanp
       link: https://github.com/bryanp
   - id: 2
     type: chg
     summary: Rename `Database#all` to `Database#content`
-    link: https://github.com/metabahn/contentfs/pull/2
+    link: https://github.com/bryanp/contentfs/pull/2
     author:
       username: bryanp
       link: https://github.com/bryanp
   - id: 1
     type: add
     summary: Introduce `Database#find` for safer traversal
-    link: https://github.com/metabahn/contentfs/pull/1
+    link: https://github.com/bryanp/contentfs/pull/1
     author:
       username: bryanp
       link: https://github.com/bryanp
 - version: v0.0.0
   date: '2020-11-11'
-  link: https://github.com/metabahn/contentfs/releases/tag/v0.0.0
+  link: https://github.com/bryanp/contentfs/releases/tag/v0.0.0
   changes:
   - summary: Initial release.
