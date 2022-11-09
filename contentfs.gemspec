@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.description = spec.summary
 
   spec.author = "Bryan Powell"
-  spec.email = "bryan@metabahn.com"
-  spec.homepage = "https://github.com/metabahn/contentfs/"
+  spec.email = "bryan@bryanp.org"
+  spec.homepage = "https://github.com/bryanp/contentfs/"
 
   spec.required_ruby_version = ">= 2.6.7"
 
